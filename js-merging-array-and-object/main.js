@@ -50,3 +50,28 @@ arr = [1, 2]
 cur = 3
 arr = [1, 2, 3]
 */
+
+const set = new Set();
+console.log(set);
+
+const set1 = new Set([1, 2, 3, 3, 3, 4, 4, 4, 5]);
+console.log(set1);
+
+const set2 = new Set("hello");
+console.log(set2);
+
+const set3 = [...new Set([1, 2, 2, 3, 4, 4])];
+console.log(set3);
+ // Set만 쓰면 객체로만 반환이 되지만 값을 배열로 담아야할 때
+ // 전개연산자로 써서 배열로 담는다
+ // 중복을 제거할 해당 배열을 set으로 반환한 뒤
+ // 전개연산자를 이용하여 값을 풀어준 뒤
+ // 다시 []으로 감싸 배열로 할당한다
+
+const obj1 = { name: "Null", age: 99 };
+const obj2 = { name: "Baldi", address: "Schoolhouse" };
+const com = {...obj1, ...obj2};
+console.log(com);
+// 객체로 만들 때 key 값은 중복을 허용하지 않으므로
+// 객체가 병합될 때 뒤에 병합되는 값으로 앞의 값이
+// 덮어씌워지면서 병합된다 - 즉, key 값의 고유성 유지

@@ -79,7 +79,7 @@ const [in1, in2, in3] = studentInfo;
 const {name} = in1;
 console.log(name);
 
-/* Unfinished
+/*
 // 중첩된 객체의 깊은 비구조화할당
 const styles = {
     size: {
@@ -96,7 +96,34 @@ const {size : {width, height}, color : {fontColor, bgColor}} = styles;
 // 비구조화할당을 사용하는 궁극적인 목적은
 // 코드의 가독성을 높이고, default parameter를
 // 설정하기 위한 방법으로 사용한다
+*/
+// const myInfo = (name, age, job, hobby) => `제 이름은 ${name}이고 ${age}살이며 직업은 ${job}입니다
+// 그리고 ${hobby}을(를) 좋아합니다`;
+// {} 안에 ``으로 사용하게되면 {} 때문에 ``이 무시된다
+// ``을 {} 안에 묶으면 인수 안에 인수를 넣는 것이 되므로
+// undefined가 나타난다
 
-const MyInfo = (obj) => { `제 이름은 ${obj.name}이고 ${obj.age}살이며 직업은 ${obj.job}입니다` };
-console.log(MyInfo({ name: "Null", age: 99, job: "Unconfirmed" }));
+// const myInfo = (obj) => `제 이름은 ${obj.name}이고 ${obj.age}살이며 직업은 ${obj.job}입니다. 그리고 ${obj.hobby}을(를) 좋아합니다`;
+// obj - 함수를 호출하는 곳에서 인수를 객체를 넣어주는데,
+// 그 인수 객체를 받아주는 매개변수
+
+// console.log(myInfo("Null", 99, "unconfirmed", "destorying the game"));
+// 실무에서 가장 중요한 것은 협업으로,
+// 이에 걸림돌이 되는 것은 지양해야 한다
+/*
+console.log(myInfo({
+    name : "Null",
+    age: 99,
+    job : "unconfirmed",
+    hobby : "destorying the game"
+}))
+*/
+// 단점: 코드의 가독성이 떨어지고,
+// default parameter를 넣을 수 없다
+
+const myInfo = ({name, age, job = "No job", hobby}) => `제 이름은 ${name}이고
+나이는 ${age}살이며 직업은 ${job}입니다. 그리도 ${hobby}을 좋아합니다`
+/*
+코드의 가독성을 높이기 위해서 obj의 객체를 구조분해할당으로
+매개변수 자리에 넣어줌으로써 바로 
 */
